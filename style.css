@@ -278,6 +278,13 @@ h6,
   margin-bottom: 5rem;
 }
 
+.section__header--split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: end;
+}
+
 .section__title {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 400;
@@ -652,44 +659,67 @@ h6,
 
 @media (max-width: 900px) {
   .site-nav {
-    padding: 1.25rem 1.5rem;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    text-align: center;
   }
 
   .site-nav__list {
-    display: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
   }
 
   .hero {
     grid-template-columns: 1fr;
     min-height: auto;
     padding: 4rem 1.5rem;
+    gap: 3rem;
   }
 
   .hero__stats {
     flex-direction: row;
     align-items: flex-start;
-    gap: 2rem;
+    gap: 1.5rem;
+    width: 100%;
+    justify-content: space-between;
   }
 
   .hero__stat {
     border-bottom: none;
     border-right: 1px solid var(--border);
-    padding-right: 2rem;
+    padding: 1rem 1.5rem 1rem 0;
     text-align: left;
+    flex: 1;
   }
 
   .hero__stat:last-child {
     border-right: none;
+    padding-right: 0;
   }
 
   .section {
     padding: 4rem 1.5rem;
   }
 
+  .section__header--split {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
   .philosophy-grid,
   .collection-grid,
   .testimonials-grid {
     grid-template-columns: 1fr;
+  }
+
+  .philosophy-item,
+  .collection-card,
+  .testimonial-card,
+  .process-step {
+    padding: 2.5rem 1.5rem;
   }
 
   .process-grid {
@@ -699,11 +729,14 @@ h6,
   .cta-banner {
     grid-template-columns: 1fr;
     padding: 4rem 1.5rem;
+    text-align: center;
+    justify-items: center;
+    gap: 2rem;
   }
 
   .footer-main {
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 2.5rem;
     padding: 2.5rem 1.5rem;
   }
 
@@ -720,10 +753,37 @@ h6,
     font-size: 2.5rem;
   }
 
+  .hero__subheading {
+    margin-bottom: 2rem;
+  }
+
   .hero__actions {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 1rem;
+    width: 100%;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero__stats {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .hero__stat {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  .hero__stat:last-child {
+    border-bottom: none;
   }
 
   .process-grid {
@@ -740,7 +800,6 @@ h6,
 }
 
 @media (prefers-reduced-motion: reduce) {
-
   *,
   *::before,
   *::after {
